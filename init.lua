@@ -6,10 +6,10 @@ local Dialog = require('easy_dialog.core.dialog')(C, U, Engine)
 local easy_dialog = { _VERSION = C.VERSION }
 
 easy_dialog.config = {
-    PAGINATION_TEXT = 'Стр. %d/%d',
-    EMPTY_LIST_TEXT = '{CCCCCC}Список пуст.',
-    PAGINATION_PREV = '{BDBDBD}<< Назад',
-    PAGINATION_NEXT = '{BDBDBD}Далее >>',
+    PAGINATION_TEXT = 'Page. %d/%d',
+    EMPTY_LIST_TEXT = '{CCCCCC}Empty list.',
+    PAGINATION_PREV = '{BDBDBD}<< Prev page',
+    PAGINATION_NEXT = '{BDBDBD}Next page >>',
 }
 
 Engine.set_config_provider(function() return easy_dialog.config end)
@@ -54,7 +54,7 @@ function easy_dialog.confirm(caption, text, onConfirm)
         :setCaption(caption)
         :setStyle('msgbox')
         :setContent(text)
-        :setButtons('OK', 'Отмена')
+        :setButtons('OK', 'ГЋГІГ¬ГҐГ­Г ')
         :setOnResponse(function(_, button)
             U.safe_call(onConfirm, button == 1)
         end)
@@ -66,11 +66,12 @@ function easy_dialog.prompt(caption, text, onInput)
         :setCaption(caption)
         :setStyle('input')
         :setContent(text)
-        :setButtons('Готово', 'Отмена')
+        :setButtons('ГѓГ®ГІГ®ГўГ®', 'ГЋГІГ¬ГҐГ­Г ')
         :setOnResponse(function(_, button, _, input)
             if button == 1 then U.safe_call(onInput, input) end
         end)
     Engine.show(d, true)
 end
+
 
 return easy_dialog
