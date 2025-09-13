@@ -3,8 +3,16 @@ A lightweight Lua library for building and managing interactive dialogs in SA:MP
 Provides object-oriented APIs to create dialogs, handle navigation, and manage user input in a modular way.
 
 ---
+## Requirements
+- **MoonLoader 0.26+** – [Download](https://www.blast.hk/threads/13305/)  
+- **SAMPFUNCS** – [Download](https://www.blast.hk/threads/17/)  
+---
 ## Installation
-Place the `easy_dialog` folder in your `lib/` directory (or anywhere in your Lua path).  
+1. Download or clone this repository.  
+   GitHub will give you a folder named `easy_dialog-main`.  
+2. Rename the folder to **`easy_dialog`**.  
+3. Place the `easy_dialog` folder into your `lib/` directory (inside your MoonLoader folder),  
+   or anywhere that is included in your Lua `package.path`.  
 Then require it in your script:
 ```lua
 local easy_dialog = require 'easy_dialog'
@@ -54,8 +62,7 @@ easy_dialog.start("welcome")
   * `easy_dialog.prompt(caption, text, onInput)`
 ---
 ### Dialog Methods
-* **Creation**: `Dialog.new()`
-  Returns a new dialog object.
+* **Creation**: `Dialog.new()` – returns a new dialog object.
 * **Setters** (chainable):
   * `:setId(id)` – set custom dialog ID (optional).
   * `:setCaption(textOrFunc)` – set title/caption.
@@ -113,3 +120,6 @@ easy_dialog.init()
 easy_dialog.register("main", mainMenu)
 easy_dialog.start("main")
 ```
+---
+## License
+MIT. Free to use and modify.
