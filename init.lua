@@ -6,7 +6,7 @@ local Dialog = require('easy_dialog.core.dialog')(C, U, Engine)
 local easy_dialog = { _VERSION = C.VERSION }
 
 easy_dialog.config = {
-    PAGINATION_TEXT = 'Page. %d/%d',
+    PAGINATION_TEXT = 'Page %d/%d',
     EMPTY_LIST_TEXT = '{CCCCCC}Empty list.',
     PAGINATION_PREV = '{BDBDBD}<< Prev page',
     PAGINATION_NEXT = '{BDBDBD}Next page >>',
@@ -54,7 +54,7 @@ function easy_dialog.confirm(caption, text, onConfirm)
         :setCaption(caption)
         :setStyle('msgbox')
         :setContent(text)
-        :setButtons('OK', 'Îòìåíà')
+        :setButtons('OK', 'Cancel')
         :setOnResponse(function(_, button)
             U.safe_call(onConfirm, button == 1)
         end)
@@ -66,7 +66,7 @@ function easy_dialog.prompt(caption, text, onInput)
         :setCaption(caption)
         :setStyle('input')
         :setContent(text)
-        :setButtons('Ãîòîâî', 'Îòìåíà')
+        :setButtons('Accept', 'Cancel')
         :setOnResponse(function(_, button, _, input)
             if button == 1 then U.safe_call(onInput, input) end
         end)
@@ -75,3 +75,4 @@ end
 
 
 return easy_dialog
+
